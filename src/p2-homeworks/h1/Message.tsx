@@ -1,14 +1,14 @@
 import React from 'react'
 import s from './Message.module.css';
 
-type MessageType = {
+type MessagesType = {
     avatar: string
     name: string
     message: string
     time: string
 }
 
-function Message(props: MessageType) {
+function Message(props: MessagesType) {
     return (
         <div className={s.item}>
             <img src={props.avatar} alt={props.name} />
