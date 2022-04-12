@@ -1,18 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Affairs from './Affairs'
 
 // types
-export type AffairPriorityType = any // need to fix any
-export type AffairType = any // need to fix any
+export type AffairPriorityType = 'high' | 'low' | 'middle' // need to fix any
+export type AffairType = {
+    _id: number
+    name: string
+    priority: AffairPriorityType
+} // need to fix any
 export type FilterType = 'all' | AffairPriorityType
 
 // constants
-const defaultAffairs: any = [ // need to fix any
-    {_id: 1, name: 'React', priority: 'high'},
-    {_id: 2, name: 'anime', priority: 'low'},
-    {_id: 3, name: 'games', priority: 'low'},
-    {_id: 4, name: 'work', priority: 'high'},
-    {_id: 5, name: 'html & css', priority: 'middle'},
+const defaultAffairs: AffairType[] = [ // need to fix any
+    { _id: 1, name: 'React', priority: 'high' },
+    { _id: 2, name: 'anime', priority: 'low' },
+    { _id: 3, name: 'games', priority: 'low' },
+    { _id: 4, name: 'work', priority: 'high' },
+    { _id: 5, name: 'html & css', priority: 'middle' },
 ]
 
 // pure helper functions
@@ -33,7 +37,7 @@ function HW2() {
 
     return (
         <div>
-            <hr/>
+            <hr />
             homeworks 2
 
             {/*should work (должно работать)*/}
@@ -43,10 +47,10 @@ function HW2() {
                 deleteAffairCallback={deleteAffairCallback}
             />
 
-            <hr/>
+            <hr />
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeAffairs/>*/}
-            <hr/>
+            <hr />
         </div>
     )
 }
