@@ -4,7 +4,6 @@ import Error404 from './pages/Error404'
 import Junior from './pages/Junior'
 import JuniorPlus from './pages/JuniorPlus'
 import PreJunior from './pages/PreJunior'
-import s from '../../p1-main/m1-ui/u1-app/App.module.css';
 
 export const PATH = {
     PRE_JUNIOR: '/pre-junior',
@@ -16,12 +15,7 @@ function Pages() {
     return (
         <div>
             {/*Routes выбирает первый подходящий роут*/}
-            <div className={s.menu}>
-                <NavLink to={PATH.PRE_JUNIOR} >PreJunior</NavLink>
-                <NavLink to={PATH.JUNIOR} >Junior</NavLink>
-                <NavLink to={PATH.JUNIOR_PLUS} >Junior +</NavLink>
-                <div className={s.btn}>+</div>
-            </div>
+            
 
             <Routes>
 
