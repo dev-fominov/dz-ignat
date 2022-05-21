@@ -64,3 +64,12 @@
 	width: 100px;
 	justify-content: space-between;
 }
+
+.lineTable {
+	width: 200px;
+	display: flex;
+	justify-content: space-between;
+}
+.lineTable {
+	margin-bottom: 5px;
+}
