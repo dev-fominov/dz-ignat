@@ -1,4 +1,5 @@
 import React from 'react'
+// import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
 import s from '../../p1-main/m1-ui/u1-app/App.module.css';
 import { PATH } from './Pages';

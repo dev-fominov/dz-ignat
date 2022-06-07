@@ -25,7 +25,7 @@ function Clock() {
     }
 
     const stringTime = date?.toLocaleTimeString() || <br/> // fix with date
-    const stringDate = date?.toLocaleDateString()  || <br/>// fix with date
+    const stringDate = date?.toLocaleDateString() || <br/>// fix with date
 
     return (
         <div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Error404 from './pages/Error404'
 import Junior from './pages/Junior'
 import JuniorPlus from './pages/JuniorPlus'
@@ -15,7 +15,6 @@ function Pages() {
     return (
         <div>
             {/*Routes выбирает первый подходящий роут*/}
-            
 
             <Routes>
 
