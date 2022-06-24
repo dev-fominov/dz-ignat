@@ -1,46 +1,47 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
+import React, { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from 'react'
+import Box from '@material-ui/core/Box';
+import Slider from '@material-ui/core/Slider';
 
-type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
+// type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-type SuperDoubleRangePropsType = DefaultInputPropsType & {
-    onChangeRange?: (value: [number, number]) => void
-    value?: [number, number]
-    // min, max, step, disable, ...
+type SuperDoubleRangePropsType = {
+    onChangeRange: (value: number | number[]) => void
+    value: [number, number]
 }
 
 const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
-    { 
-        onChangeRange, value,
-        ...restProps
-        // min, max, step, disable, ...
+    {
+        onChangeRange,
+        value
     }
 ) => {
-    // сделать самому, можно подключать библиотеки
-    // const onChangeCallback1 = (e: ChangeEvent<HTMLInputElement>) => {
-    //     onChange && onchange(e) // сохраняем старую функциональность
 
-    //     onChangeRange && onChangeRange(+e.currentTarget.value)
-    // }
-    // const onChangeCallback2 = (e: ChangeEvent<HTMLInputElement>) => {
-    //     onChange && onchange(e) // сохраняем старую функциональность
+    // const handleChange = (event: any, newValue: number | number[]) => {
+    //     if (Array.isArray(newValue))
+    //     onChangeRange(newValue[0], newValue[1])
+    // };
 
-    //     onChangeRange && onChangeRange(+e.currentTarget.value)
-    // }
+    const handleChange = (event: ChangeEvent<{}>, newValue: number | number[]) => {
+        if (onChangeRange) {
+            onChangeRange(newValue as number[]);
+        }
+    };
+
+    const val = value ? value[0] : 0
+    const val2 = value ? value[1] : 0
 
     return (
         <>
-            {/* <input
-                type={'range'}
-                onChange={onChangeCallback1}
-
-                {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
-            />
-            <input
-                type={'range'}
-                onChange={onChangeCallback2}
-
-                {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
-            /> */}
+            <Box sx={{ width: 300 }}>
+                <Slider
+                    value={[val, val2]}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    min={0}
+                    max={100}
+                    step={1}
+                />
+            </Box>
         </>
     )
 }
