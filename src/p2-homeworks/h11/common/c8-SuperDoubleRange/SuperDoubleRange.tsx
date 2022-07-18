@@ -1,8 +1,6 @@
-import React, { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from 'react'
+import React, { ChangeEvent } from 'react'
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
-
-// type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
 type SuperDoubleRangePropsType = {
     onChangeRange: (value: number | number[]) => void
@@ -15,11 +13,6 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
         value
     }
 ) => {
-
-    // const handleChange = (event: any, newValue: number | number[]) => {
-    //     if (Array.isArray(newValue))
-    //     onChangeRange(newValue[0], newValue[1])
-    // };
 
     const handleChange = (event: ChangeEvent<{}>, newValue: number | number[]) => {
         if (onChangeRange) {
