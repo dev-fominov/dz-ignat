@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux'
 import thunkMiddleware, { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { changeThemeCType, themeReducer } from '../../h12/bll/themeReducer'
-import { setSuccessType, successReduser } from '../../h13/components/request-reducer'
+import { onChangeType, successReduser } from '../../h13/components/request-reducer'
 import { loadingACType, loadingReducer } from './loadingReducer'
 
 const reducers = combineReducers({
@@ -14,7 +14,7 @@ const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 export default store
 
-export type AppActionsType = loadingACType | changeThemeCType | setSuccessType
+export type AppActionsType = loadingACType | changeThemeCType | onChangeType 
 
 export type AppStoreType = ReturnType<typeof reducers>
 export type RootState = ReturnType<typeof store.getState>

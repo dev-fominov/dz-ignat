@@ -1,31 +1,29 @@
-import React, { useState } from "react"
+import React from "react"
 import { useAppDispatch, useAppSelector } from "../../h12/bll/hooks"
 import Button from "./Button"
 import Checkbox from "./Checkbox"
-import { setSuccessTC } from "./request-reducer"
+import { onChangeAC, setSuccessTC } from "./request-reducer"
 
-function Request() {
-
+const Request = () => {
 
 	const success = useAppSelector(state => state.success.success)
 	const loading = useAppSelector(state => state.loading.loading)
-	const [value, onChangeChecked] = useState<boolean>(success)
 	const dispatch = useAppDispatch()
 
-	console.log('Disabled: ' + loading)
+	console.log('checked: ' + success)
 
 	const requestHandle = () => {
-		dispatch(setSuccessTC(value))
+		dispatch(setSuccessTC(success))
 	}
 
-	const onChangeHandler = (value: boolean) => {
-		onChangeChecked(value)
+	const onChangeHandler = (success: boolean) => {
+		dispatch(onChangeAC(success))
 	}
 
 	return (
 		<div>
 			<Button callBack={requestHandle} name={'Button'} disabled={loading} />
-			<Checkbox onChange={onChangeHandler} checked={value} />
+			<Checkbox onChange={onChangeHandler} checked={success} />
 		</div>
 	)
 }

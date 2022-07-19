@@ -13,25 +13,25 @@ const initialState: InitialStateType = {
 	loading: false
 }
 
-export const successReduser = (state: InitialStateType = initialState, action: setSuccessType): InitialStateType => {
+export const successReduser = (state: InitialStateType = initialState, action: onChangeType): InitialStateType => {
 	switch (action.type) {
-		case 'POST-SUCCESS':
+		case 'ON-CHANGE':
 			return { ...state, success: action.success }
 		default:
 			return { ...state }
 	}
 }
 
-export type setSuccessType = ReturnType<typeof setSuccessAC>
-export const setSuccessAC = (success: boolean) => ({ type: 'POST-SUCCESS', success } as const)
+export type onChangeType = ReturnType<typeof onChangeAC>
+export const onChangeAC = (success: boolean) => ({ type: 'ON-CHANGE', success } as const)
 
 export const setSuccessTC = (success: boolean): AppThunk => (dispatch) => {
 	dispatch(loadingAC(true))
 	requestsAPI.requests(success)
 		.then((res) => {
-			dispatch(setSuccessAC(res.data.yourBody.success))
+			dispatch(onChangeAC(res.data.yourBody.success))
 			console.log(res.data.errorText);
-			console.log('success: ' + res.data.yourBody.success);
+			console.log('successTC: ' + res.data.yourBody.success);
 		})
 		.catch((error) => {
 			console.log({ ...error });
